@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LiferayContentDescriptor>
+	<pages>
+		<page friendlyUrl="/eaiklinik" name="EAI Klinik">
+			<roles>
+				<role name="EAI-AV" inherit="true"/>
+				<role name="EAI-Wartung" inherit="true"/>
+				<role name="EAI-User"/>
+			</roles>
+			<portlets>
+				<portlet type="crud2go">
+					<preferences>
+						<preference name="camunda.uri" value="http://${osiris.POSTENGINE_PROCESS_FULL.config.uri}"/>
+						<preference name="camunda.user" value="${osiris.POSTENGINE_PROCESS_FULL.config.userid}"/>
+						<preference name="camunda.password" value="${osiris.POSTENGINE_PROCESS_FULL.config.password}"/>
+						<preference name="processCategory" value=""/>
+						<preference name="businessProcessRenderer.uri" value="${osiris.businessProcessRendererUri.config.uri}"/>
+						<preference name="postProcessRenderer.uri" value="${osiris.postProcessRendererUri.config.uri}"/>
+						<preference name="handleFailedJobProcessCategory" value="${osiris.handleFailedJobProcessCategory.namespace}"/>
+					</preferences>
+					<parameters>
+						<parameter name="crud2goURL" value="http://svn-repo-url.de/repo/trunk/src/main/merged/eaiklinik/Fehleruebersicht.xml?p=21974"/>
+					</parameters>
+				</portlet>
+			</portlets>
+			<pages>
+				<page friendlyUrl="/eaiklinik/osirisxconfig" name="Osiris X - Konfiguration">
+					<pages>
+						<page friendlyUrl="/eaiklinik/osirisxconfig/gruppenzuordnung" name="Gruppenzuordnung">
+							<portlets>
+								<portlet type="crud2go">
+									<parameters>
+										<parameter name="crud2goURL" value="http://svn-repo-url.de/repo/trunk/src/main/merged/eaiklinik/GruppenzuordnungOsirisX.xml?p=20890"/>
+									</parameters>
+								</portlet>
+							</portlets>
+						</page>
+						<page friendlyUrl="/eaiklinik/osirisxconfig/mailbenachrichtigung" name="Mailbenachrichtigung">
+							<portlets>
+								<portlet type="crud2go">
+									<parameters>
+										<parameter name="crud2goURL" value="http://svn-repo-url.de/repo/trunk/src/main/merged/eaiklinik/MailbenachrichtigungOsirisX.xml?p=20890"/>
+									</parameters>
+								</portlet>
+							</portlets>
+						</page>
+					</pages>
+				</page>
+			</pages>
+		</page>
+	</pages>
+</LiferayContentDescriptor>

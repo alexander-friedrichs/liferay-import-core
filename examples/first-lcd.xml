@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<LiferayContentDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="LiferayContentDescriptor.xsd">
+	<pages>
+		<page friendlyUrl="/first" name="First">
+			<roles>
+				<role name="EAI-AV" inherit="true"/>
+				<role name="EAI-Wartung" inherit="true"/>
+				<role name="FIRST-AV" inherit="true"/>
+			</roles>
+			<pages>
+				<page name="FobuRep" friendlyUrl="/first/foburep">
+					<pages>
+						<page name="Ladelauf-Kontrolle MFIC" friendlyUrl="/first/foburep/ladelaufkontrolle">
+							<portlets>
+								<portlet type="crud2go">
+									<parameters>
+										<parameter name="crud2goURL" value="http://svn-repo-url.de/repo/trunk/src/main/resources/First/LadelaufKontrolleMFIC.xml?p=7854"/>
+									</parameters>
+								</portlet>
+							</portlets>
+						</page>
+						<page name="Konfiguration MFIC Versorgung nach FIRST" friendlyUrl="/first/foburep/mficversorgung">
+							<pages>
+								<page name="Übertragungsschlüssel" friendlyUrl="/first/foburep/mficversorgung/uebertragungsschluessel">
+									<portlets>
+										<portlet type="crud2go">
+											<parameters>
+												<parameter name="crud2goURL" value="http://svn-repo-url.de/repo/trunk/src/main/resources/First/KonfigurationDerMFIC-VersorgungNachFIRSTUebertragungsschluessel.xml?p=7854"/>
+											</parameters>
+										</portlet>
+									</portlets>
+								</page>
+								<page name="SQL" friendlyUrl="/first/foburep/mficversorgung/sql">
+									<portlets>
+										<portlet type="crud2go">
+											<parameters>
+												<parameter name="crud2goURL" value="http://svn-repo-url.de/repo/trunk/src/main/resources/First/KonfigurationDerMFIC-VersorgungNachFIRSTSQL.xml?p=7854"/>
+											</parameters>
+										</portlet>
+									</portlets>
+								</page>
+								<page name="XSLT" friendlyUrl="/first/foburep/mficversorgung/xslt">
+									<portlets>
+										<portlet type="crud2go">
+											<parameters>
+												<parameter name="crud2goURL" value="http://svn-repo-url.de/repo/trunk/src/main/resources/First/KonfigurationDerMFIC-VersorgungNachFIRSTXSLT.xml?p=7854"/>
+											</parameters>
+										</portlet>
+									</portlets>
+								</page>
+							</pages>
+						</page>
+						<page name="Konfiguration der Stammdatenversorgung für FIRST" friendlyUrl="/first/foburep/stammdatenversorgung">
+							<pages>
+								<page name="SQL" friendlyUrl="/first/foburep/stammdatenversorgung/sql">
+									<portlets>
+										<portlet type="crud2go">
+											<parameters>
+												<parameter name="crud2goURL" value="http://svn-repo-url.de/repo/trunk/src/main/resources/First/KonfigurationDerStammdatenversorgungFuerFIRSTSQL.xml?p=7854"/>
+											</parameters>
+										</portlet>
+									</portlets>
+								</page>
+								<page name="XSLT" friendlyUrl="/first/foburep/stammdatenversorgung/xslt">
+									<portlets>
+										<portlet type="crud2go">
+											<parameters>
+												<parameter name="crud2goURL" value="http://svn-repo-url.de/repo/trunk/src/main/resources/First/KonfigurationDerStammdatenversorgungFuerFIRSTXSLT.xml?p=7854"/>
+											</parameters>
+										</portlet>
+									</portlets>
+								</page>
+							</pages>
+						</page>
+						<page name="Positivliste der Fonds für FIRST" friendlyUrl="/first/foburep/positivliste">
+							<portlets>
+								<portlet type="crud2go">
+									<parameters>
+										<parameter name="crud2goURL" value="http://svn-repo-url.de/repo/trunk/src/main/resources/First/PositivlisteDerFondsFuerFIRST.xml?p=7854"/>
+									</parameters>
+								</portlet>
+							</portlets>
+						</page>
+					</pages>
+				</page>
+				<page name="IBK" friendlyUrl="/first/ibk">
+					<pages>
+						<page name="First Stresstest" friendlyUrl="/first/ibk/stresstest">
+							<pages>
+								<page name="FONDS_GRUPPE" friendlyUrl="/first/ibk/stresstest/gruppe">
+									<portlets>
+										<portlet type="crud2go">
+											<parameters>
+												<parameter name="crud2goURL" value="http://svn-repo-url.de/repo/trunk/src/main/resources/First/FirstStresstestFondsGruppe.xml?p=7854"/>
+											</parameters>
+										</portlet>
+									</portlets>
+								</page>
+								<page name="FONDS_BESTAND" friendlyUrl="/first/ibk/stresstest/bestand">
+									<portlets>
+										<portlet type="crud2go">
+											<parameters>
+												<parameter name="crud2goURL" value="http://svn-repo-url.de/repo/trunk/src/main/resources/First/FirstStresstestFondsBestand.xml?p=7854"/>
+											</parameters>
+										</portlet>
+									</portlets>
+								</page>
+								<page name="FONDS_KENNZAHLEN" friendlyUrl="/first/ibk/stresstest/kennzahlen">
+									<portlets>
+										<portlet type="crud2go">
+											<parameters>
+												<parameter name="crud2goURL" value="http://svn-repo-url.de/repo/trunk/src/main/resources/First/FirstStresstestFondsKennzahlen.xml?p=7854"/>
+											</parameters>
+										</portlet>
+									</portlets>
+								</page>
+							</pages>
+						</page>
+					</pages>
+				</page>
+			</pages>
+		</page>
+	</pages>
+</LiferayContentDescriptor>

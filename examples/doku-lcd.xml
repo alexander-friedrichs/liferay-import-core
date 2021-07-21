@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<LiferayContentDescriptor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="LiferayContentDescriptor.xsd">
+	<pages>
+		<page name="Doku" friendlyUrl="/doku">
+			<roles>
+				<role name="EAI-AV" inherit="true"/>
+				<role name="EAI-Wartung" inherit="true"/>
+			</roles>
+			<pages>
+				<page name="Vollständigkeit" friendlyUrl="/doku/vollstaendigkeit">
+					<portlets>
+						<portlet type="crud2go">
+							<preferences>
+								<preference name="wiki.uri" value="find.url.de"/>
+								<preference name="wiki.user" value="user"/>
+								<preference name="wiki.password" value="password"/>
+								<preference name="async" value="true"/>
+								<preference name="version" value="Version 4.0"/>
+							</preferences>
+							<parameters>
+								<parameter name="crud2goURL" value="http://svn-repo-url.de/repo/trunk/src/main/merged/doku/Vollstaendigkeit.xml?p=12129"/>
+							</parameters>
+						</portlet>
+					</portlets>
+				</page>
+				<page name="Konfiguration" friendlyUrl="/doku/konfiguration">
+					<portlets>
+						<portlet type="crud2go">
+							<preferences>
+								<preference name="version" value="Version 4.0"/>
+							</preferences>
+							<parameters>
+								<parameter name="crud2goURL" value="http://svn-repo-url.de/repo/trunk/src/main/merged/doku/Konfiguration.xml?p=11198"/>
+							</parameters>
+						</portlet>
+					</portlets>
+				</page>
+			</pages>
+		</page>
+	</pages>
+</LiferayContentDescriptor>
