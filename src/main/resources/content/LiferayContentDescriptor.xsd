@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="roles">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="role" minOccurs="1" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="role">
+		<xs:complexType>
+			<xs:attribute name="name" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="inherit" use="optional">
+				<xs:simpleType>
+					<xs:restriction base="xs:boolean"/>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="preferences">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="preference" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="preference">
+		<xs:complexType>
+			<xs:attribute name="name" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="value" use="optional">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="url" use="optional">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="encoding" use="optional">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="portletsLeft">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="portlet" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="portlets">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="portlet" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+    <xs:element name="portletsBottom">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="portlet" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+	<xs:element name="portlet">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="preferences" minOccurs="0" maxOccurs="1"/>
+				<xs:element ref="parameters" minOccurs="0" maxOccurs="1"/>
+				<xs:element ref="permissions" minOccurs="0" maxOccurs="1"/>
+				<xs:element ref="replacements" minOccurs="0" maxOccurs="1"/>
+			</xs:sequence>
+			<xs:attribute name="type" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="parameters">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="parameter" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="parameter">
+		<xs:complexType>
+			<xs:attribute name="name" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="value" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="replacements">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="replacement" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="replacement">
+		<xs:complexType>
+			<xs:attribute name="regex" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="value" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="pages">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="page" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="page">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="roles" minOccurs="0" maxOccurs="1"/>
+				<xs:element ref="portletsLeft" minOccurs="0" maxOccurs="1"/>
+				<xs:element ref="portlets" minOccurs="0" maxOccurs="1"/>
+                <xs:element ref="portletsBottom" minOccurs="0" maxOccurs="1"/>
+				<xs:element ref="pages" minOccurs="0" maxOccurs="1"/>
+			</xs:sequence>
+			<xs:attribute name="name" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="layout" use="optional">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="1_column"/>
+						<xs:enumeration value="UIT_2Cols_10_90"/>
+						<xs:enumeration value="UIT_2Cols_15_85"/>
+						<xs:enumeration value="UIT_2Cols_20_80"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="friendlyUrl" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="hidden" use="optional" default="false">
+				<xs:simpleType>
+					<xs:restriction base="xs:boolean"/>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="showMenuPortlet" use="optional" default="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:boolean"/>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="defaultLayout">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="1_column"/>
+				<xs:enumeration value="UIT_2Cols_10_90"/>
+				<xs:enumeration value="UIT_2Cols_15_85"/>
+				<xs:enumeration value="UIT_2Cols_20_80"/>
+                <xs:enumeration value="sofia_3_9"/>
+                <xs:enumeration value="sofia_2_10"/>
+                <xs:enumeration value="sofia_6_6"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="menuDisplayStyle">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:enumeration value="from-level-1-with-title"/>
+				<xs:enumeration value="from-level-1-to-all-sublevels"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="communityId">
+		<xs:simpleType>
+			<xs:restriction base="xs:long"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="defaultUserId">
+		<xs:simpleType>
+			<xs:restriction base="xs:long"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="permissions">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="permission" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="permission">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="actions"/>
+			</xs:sequence>
+			<xs:attribute name="name" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="mappings">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="mappedRole" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="mappedRole">
+		<xs:complexType>
+			<xs:attribute name="name" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="actions">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="actionid" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="actionid">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="mappings"/>
+			</xs:sequence>
+			<xs:attribute name="name" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="MEMBER"/>
+						<xs:enumeration value="PERMISSION"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="LiferayContentDescriptor">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="communityId" minOccurs="0" maxOccurs="1"/>
+				<xs:element ref="defaultUserId" minOccurs="0" maxOccurs="1"/>
+				<xs:element ref="defaultLayout" minOccurs="0" maxOccurs="1"/>
+				<xs:element ref="menuDisplayStyle" minOccurs="0" maxOccurs="1"/>
+				<xs:element ref="pages" minOccurs="1" maxOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">	
+<xs:simpleType name="ST_role">
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:element name="webId">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="users">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="user" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="user">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="roles"/>
+				<xs:element ref="screenName"/>
+				<xs:element ref="insertName"/>
+                <xs:element ref="insertDate"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="screenName">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="insertName">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+    <xs:element name="insertDate">
+		<xs:simpleType>
+			<xs:restriction base="xs:date"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="roles">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="role" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+		<xs:element name="role">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="ST_role">
+					<xs:attribute name="action" use="required">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="ADD"/>
+								<xs:enumeration value="REMOVE"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="liferayUserRoleDefinition">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="users"/>
+				<xs:element ref="webId"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
